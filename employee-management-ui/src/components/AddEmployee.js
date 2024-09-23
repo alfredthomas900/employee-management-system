@@ -6,7 +6,7 @@ const AddEmployee = () => {
     id: "",
     firstName: "",
     lastName: "",
-    email: "",
+    emailId: "",
   });
 
   const handleChange = (event) => {
@@ -21,10 +21,10 @@ const AddEmployee = () => {
     event.preventDefault();
     EmployeeService.saveEmployee(Employee)
       .then((response) => {
-        console.log(response);
+        console.log("Employee added successfully ", response);
       })
       .catch((error) => {
-        console.log(error);
+        console.log("Error while adding employee ", error);
       });
   };
 
@@ -64,8 +64,8 @@ const AddEmployee = () => {
           </label>
           <input
             type="email"
-            name="email"
-            value={Employee.email}
+            name="emailId"
+            value={Employee.emailId}
             onChange={(event) => handleChange(event)}
             className="h-10 w-96 border mt-2 px-2 py-2"
           ></input>
