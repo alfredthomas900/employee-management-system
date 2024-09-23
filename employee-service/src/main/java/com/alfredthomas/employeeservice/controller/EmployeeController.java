@@ -6,10 +6,13 @@ import com.alfredthomas.employeeservice.model.response.EmployeeResponse;
 import com.alfredthomas.employeeservice.service.EmployeeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(EmployeeURIConstants.EMPLOYEE_BASE_URI)
@@ -21,5 +24,10 @@ public class EmployeeController {
   @PostMapping(EmployeeURIConstants.CREATE_EMPLOYEE_URI)
   public EmployeeResponse createEmployee(@RequestBody EmployeeRequest employeeRequest) {
     return employeeService.createEmployee(employeeRequest);
+  }
+
+  @GetMapping(EmployeeURIConstants.GET_ALL_EMPLOYEES_URI)
+  public List<EmployeeResponse> getAllEmployees() {
+    return employeeService.getAllEmployees();
   }
 }

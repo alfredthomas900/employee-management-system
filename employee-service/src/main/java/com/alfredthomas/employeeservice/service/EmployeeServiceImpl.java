@@ -8,6 +8,8 @@ import com.alfredthomas.employeeservice.util.EmployeeUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class EmployeeServiceImpl implements EmployeeService {
@@ -18,5 +20,10 @@ public class EmployeeServiceImpl implements EmployeeService {
   public EmployeeResponse createEmployee(EmployeeRequest employeeRequest) {
     Employee employee = EmployeeUtils.mapToEmployeeEntity(employeeRequest);
     return EmployeeUtils.mapToEmployeeResponse(employeeRepository.save(employee));
+  }
+
+  @Override
+  public List<EmployeeResponse> getAllEmployees() {
+    return EmployeeUtils.mapToEmployeeResponseList(employeeRepository.findAll());
   }
 }
