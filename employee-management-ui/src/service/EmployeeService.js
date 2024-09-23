@@ -8,4 +8,4 @@ class EmployeeService {
   }
 }
 
-export default EmployeeService;
+export default new EmployeeService();

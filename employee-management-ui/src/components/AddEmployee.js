@@ -20,11 +20,11 @@ const AddEmployee = () => {
   const saveEmployee = (event) => {
     event.preventDefault();
     EmployeeService.saveEmployee(Employee)
-      .then((res) => {
-        console.log("Employee added successfully : ", res);
+      .then((response) => {
+        console.log(response);
       })
       .catch((error) => {
-        console.log(error + "Error while adding employee");
+        console.log(error);
       });
   };
 
